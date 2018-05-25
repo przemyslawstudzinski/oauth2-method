@@ -35,18 +35,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     return super.authenticationManagerBean();
   }
 
-  @Override
-  public void configure(final HttpSecurity http) throws Exception {
-    http.httpBasic()
-        .and()
-        .authorizeRequests()
-        .anyRequest()
-        .authenticated()
-        .and()
-        .csrf()
-        .disable()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-  }
+//  @Override
+//  public void configure(final HttpSecurity http) throws Exception {
+//    http.httpBasic()
+//        .and()
+//        .authorizeRequests()
+//        .anyRequest()
+//        .authenticated()
+//        .and()
+//        .csrf()
+//        .disable()
+//        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//  }
 
   @Override
   public void configure(AuthenticationManagerBuilder auth) throws Exception {

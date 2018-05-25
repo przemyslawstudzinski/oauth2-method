@@ -39,6 +39,9 @@ dependencies {
 	compile 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
 	compile 'org.mapstruct:mapstruct-processor:1.2.0.Final'
 
+	compile 'org.springframework.security.oauth:spring-security-oauth2:2.3.3.RELEASE'
+
+
 	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
