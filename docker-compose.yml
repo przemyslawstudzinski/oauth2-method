@@ -1,0 +1,24 @@
+version: '3'
+services:
+    oauth2_method:
+        container_name: oauth2_method
+        image: przemyslawstudzinski/oauth2-method
+        depends_on:
+            - postgresql_db
+        environment:
+            - DB_URL=jdbc:postgresql://postgresql_db:5432/db
+            - DB_USER=root
+            - DB_PASSWORD=password
+        ports:
+            - 8080:8080
+
+    postgresql_db:
+        container_name: postgresql_db
+        image: przemyslawstudzinski/postgresql-db
+        environment:
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=db
+            - POSTGRES_USER=root
+        # Use to connect to db outside of docker network
+        ports:
+            - 5432:5432

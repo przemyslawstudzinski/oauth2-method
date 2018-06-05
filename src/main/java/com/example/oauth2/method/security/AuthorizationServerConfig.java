@@ -28,11 +28,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
   @Override
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-    clients.inMemory().withClient("my-trusted-client")
+    clients.inMemory()
+        .withClient("my-trusted-client")
+        //remove client cre
         .authorizedGrantTypes("client_credentials", "password")
-        .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT").scopes("read", "write", "trust")
-        .resourceIds("oauth2-resource").accessTokenValiditySeconds(5000).secret(passwordEncoder.encode("secret"));
-    //http://localhost:8080/oauth/token?grand_type=password&username=ben&password=password
+        .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
+        .scopes("read", "write", "trust")
+        .resourceIds("oauth2-resource")
+        .accessTokenValiditySeconds(5000)
+        .secret(passwordEncoder.encode("secret"));
+        //http://localhost:8080/oauth/token?grand_type=password&username=ben&password=password
   }
 
   @Override

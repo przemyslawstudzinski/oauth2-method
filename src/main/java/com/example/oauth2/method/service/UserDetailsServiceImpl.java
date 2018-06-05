@@ -1,4 +1,4 @@
-package com.example.oauth2.method.security;
+package com.example.oauth2.method.service;
 
 import com.example.oauth2.method.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

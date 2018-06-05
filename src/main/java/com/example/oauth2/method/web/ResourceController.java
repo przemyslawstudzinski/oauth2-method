@@ -1,6 +1,6 @@
 package com.example.oauth2.method.web;
 
-import com.example.oauth2.method.annotations.CurrentlyLoggedUser;
+import com.example.oauth2.method.security.annotations.CurrentlyLoggedUser;
 import java.security.Principal;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
