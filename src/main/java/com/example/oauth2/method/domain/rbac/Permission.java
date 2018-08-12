@@ -1,5 +1,6 @@
-package com.example.oauth2.method.domain;
+package com.example.oauth2.method.domain.rbac;
 
+import com.example.oauth2.method.domain.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

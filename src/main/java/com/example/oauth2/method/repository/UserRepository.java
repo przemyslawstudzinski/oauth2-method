@@ -1,6 +1,6 @@
 package com.example.oauth2.method.repository;
 
-import com.example.oauth2.method.domain.User;
+import com.example.oauth2.method.domain.rbac.User;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

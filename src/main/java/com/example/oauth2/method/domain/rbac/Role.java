@@ -1,5 +1,6 @@
-package com.example.oauth2.method.domain;
+package com.example.oauth2.method.domain.rbac;
 
+import com.example.oauth2.method.domain.BaseEntity;
 import java.util.Collection;
 import java.util.HashSet;
 import javax.persistence.Column;
