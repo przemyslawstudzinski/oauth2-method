@@ -1,6 +1,7 @@
 package com.example.oauth2.method.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+
+  @Value("${oauth2.secret.key}")
+  private String secret;
 
   @Autowired
   private AuthenticationManager authenticationManager;
@@ -30,19 +34,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
   public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
     clients.inMemory()
         .withClient("my-trusted-client")
-        //remove client cre
-        .authorizedGrantTypes("client_credentials", "password")
+        .authorizedGrantTypes("password")
         .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
         .scopes("read", "write", "trust")
         .resourceIds("oauth2-resource")
         .accessTokenValiditySeconds(5000)
-        .secret(passwordEncoder.encode("secret"));
-        //http://localhost:8080/oauth/token?grand_type=password&username=ben&password=password
+        .secret(passwordEncoder.encode(secret));
   }
 
   @Override
   public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
     security.checkTokenAccess("isAuthenticated()");
   }
-
 }
+
+//http://localhost:8080/oauth/token?grand_type=password&username=ben&password=password

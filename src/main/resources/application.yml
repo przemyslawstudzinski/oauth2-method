@@ -27,7 +27,9 @@ logging:
 #       springframework:
 #         security: DEBUG
 
-
+oauth2:
+  secret:
+    key: secret
 ---
 
 spring:
@@ -57,3 +59,6 @@ logging:
   pattern:
     console: '%d{yyyy-MMM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{15}) - %msg %n'
 
+oauth2:
+  secret:
+    key: secret
